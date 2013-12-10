@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Easy Market</title>
+		<meta name="viewport" content="width=device-width initial-scale=1.0" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<link rel="stylesheet" href="css/jquery.mobile-1.3.1.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<script src="js/jquery-1.10.2.js"></script>
+		<script src="js/jquery.mobile-1.3.1.js"></script>
+		<script src="controller/index.js"></script>
+		<script src="controller/user.js"></script>
+		<script src="controller/search.js"></script>
+		<script src="controller/product.js"></script>
+		<script src="controller/account.js"></script>
+		<script src="controller/bids.js"></script>
+		<script src="controller/selling.js"></script>
+		<script src="controller/cart.js"></script>
+		<script src="controller/profile.js"></script>
+		<script src="controller/orders.js"></script>
+		<script src="controller/creditcard.js"></script>
+		<script src="controller/address.js"></script>
+	</head>
+	<body>
+ <!--  home page -->
+		<div id="productListByCategory" data-role="page">
+			<div data-role="header"   data-position="fixed"> 
+				<h1>e-Market</h1>
+				 <a id='previousPage' href='search.html'>back</a> 
+			</div>
+			
+			<div data-role="content" >
+				<ul id="product_list" data-role="listview" data-inset="true">
+
+				</ul>
+			</div>
+
+
+			<div data-role="footer"  data-position="fixed"  class="app-footer">
+				<div data-role="navbar">
+					<ul>
+					    <li><a href="index.html" data-role="button" data-icon="search" data-iconpos="top" > Home</a></li>
+						<li><a href="search.html" data-role="button" data-icon="info"  data-iconpos="top" >Search</a></li>
+						<li><a href="account.html" data-role="button" data-icon="star" data-iconpos="top" > My Account</a></li>
+					    <li><a href="sell.html"  data-role="button" data-icon="grid" data-iconpos="top">Sell</a></li>
+					    <li><a href="cart.html"  data-role="button" data-icon="grid" data-iconpos="top">Cart</a></li>
+					</ul>
+				</div>
+			</div><!-- /footer -->
+		</div>
+		<!--end of home page -->
+
+	</body>
+</html>

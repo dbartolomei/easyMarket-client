@@ -1,0 +1,22 @@
+.hide{
+	display: none;
+}
+
+#addToCart{
+	height: 40px;
+	line-height: 40px;
+	background: green;
+	color: #ededed;
+	box-shadow: none;
+	text-shadow: 0 0 0;
+}
+
+#bidNow{
+	background: #117ef5;
+	height: 40px;
+	line-height: 40px;
+	color: #ededed;
+	text-shadow: 0 0 0;
+}
+
+
