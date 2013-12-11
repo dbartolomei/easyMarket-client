@@ -1,4 +1,4 @@
-$(document).on('ready',function(event){ console.log('cart.js loaded'); })
+
 
 $(document).on('pagebeforeshow', "#cart", function(event, ui) {
 	  if(localStorage.currentUser == ''){
@@ -6,7 +6,7 @@ $(document).on('pagebeforeshow', "#cart", function(event, ui) {
     } 
     else{
 	$.ajax({
-		url : "http://easymarket.herokuapp.com0/cartproducts",
+		url : "http://easymarket.herokuapp.com/cartproducts",
 		contentType: "application/json",
 		data: {user_id:localStorage.currentUser},
 		success : function(data, textStatus, jqXHR){
