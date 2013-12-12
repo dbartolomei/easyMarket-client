@@ -19,6 +19,8 @@
 		<script src="controller/orders.js"></script>
 		<script src="controller/creditcard.js"></script>
 		<script src="controller/address.js"></script>
+		<script src="controller/new_user.js"></script>
+		<script src="controller/new_address.js"></script>
 	</head>
 	<body>		
 		<div id="signup" data-role="page">
@@ -29,19 +31,28 @@
 			<div data-role="content">
 				<form>
 					<label>First Name</label>
-					<input type="text" name="firstname">
+					<input id="fname" type="text" name="firstname">
 					<label>Last Name </label>
-					<input type="text" name="lastName">
+					<input id="lname" type="text" name="lastName">
 					<label>Email </label>
-					<input type="email" name="emailaddress">
+					<input id="u_email" type="email" name="emailaddress">
 					<label>Password</label>
-					<input type="password" name="password">
+					<input id="u_pass" type="password" name="password">
 					<label> Confirm Password </label>
-					<input type="password" name="confirmpassword">
+					<input id="pass_check" type="password" name="confirmpassword">
 					<label> Phone </label>
-					<input type="text" name="phone">
-				    <label for="date-2">Date of Birth</label>
-				    <input type="date" data-clear-btn="true" name="date-2" id="date-2" value="">
+					<input id="u_phone" type="text" name="phone">
+				   
+				    
+				    <label for="gender" class="select">Gender:</label>
+  					 <select name="gender" id="gender">
+     					<option value="m">Male</option>
+      					<option value="f">Female</option>
+   					</select>
+   					
+   					 <label for="date-2">Date of Birth</label>
+				    <input id="u_bday" type="date" data-clear-btn="true" name="date-2" value="">
+				    <a id='new_user_submit'data-role='button' onclick='new_user1()'> Submit </a>
 				</form>
 			</div>
 				<p><a href="#home">Cancel</a> </p>
