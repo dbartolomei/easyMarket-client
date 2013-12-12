@@ -6,7 +6,7 @@ $(document).on('pagebeforeshow', "#cart", function(event, ui) {
     } 
     else{
 	$.ajax({
-		url : "http://easymarket.herokuapp.com/cartproducts",
+		url : "http://localhost:5000/cartproducts",
 		contentType: "application/json",
 		data: {user_id:localStorage.currentUser},
 		success : function(data, textStatus, jqXHR){

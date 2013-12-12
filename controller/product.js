@@ -5,7 +5,7 @@ var cart = [];
 
 $(document).on('pagebeforeshow', "#product", function( event, ui ) {
 		$.ajax({
-		url : "http://easymarket.herokuapp.com/product?id=" + localStorage.id,
+		url : url + "/product?id=" + localStorage.id,
 		method: 'get',
 		contentType: "application/json",
 		success : function(product, textStatus, jqXHR){
