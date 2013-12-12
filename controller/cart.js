@@ -1,8 +1,11 @@
 
-
+var globalvar;
+var globalproduct;
 $(document).on('pagebeforeshow', "#cart", function(event, ui) {
 	  if(localStorage.currentUser == ''){
         $.mobile.changePage("login.html",{ });
+        
+      
     } 
     else{
     	
@@ -37,10 +40,12 @@ $(document).on('pagebeforeshow', "#cart", function(event, ui) {
      
 	
 	$.ajax({
-		url : "http://easymarket.herokuapp.com/cartproducts",
+		url : "http://localhost:5000/cartproducts",
 		contentType: "application/json",
 		data: {user_id:localStorage.currentUser},
 		success : function(data, textStatus, jqXHR){
+			
+			
 			var cartList = data.data;
 			var list3 = $("#cart-list");
 			
@@ -48,13 +53,14 @@ $(document).on('pagebeforeshow', "#cart", function(event, ui) {
 			list3.empty();
 			total.empty();
 			console.log(cartList);
-			
-			for(var i= 0; i < cartList.length; ++i){
+			globalvar= cartList.length;
+		
+			for(var j= 0; j < cartList.length; ++j){
 				console.log();
 				
 				
-				product = cartList[i];
-				list3.append("<li id=" + product.product_id + "><a onclick=GetProductPage(" + product.product_id + ")>"
+				product = cartList[j];
+				list3.append("<li value="+product.product_id +" id=" + product.product_id + "><a onclick=GetProductPage(" + product.product_id + ")>"
 								+ "<h2>" + product.product_name +  "</h2>" 
 								+ "<p>" + product.description + "</p>" 
 								+ "<p>Price: " + product.price + "</p>" +"</a></li>"
@@ -65,7 +71,8 @@ $(document).on('pagebeforeshow', "#cart", function(event, ui) {
 			}
 			total.append("<h4 style='text-align: right'>Total: $ "+product.price_total +"</h4>");
 		$("li").on("swipe",function(){
-           
+           globalproduct=$(this).val();
+           remove();
             $(this).hide();
             $("h4").hide();
             
@@ -85,9 +92,12 @@ $(document).on('pagebeforeshow', "#cart", function(event, ui) {
 });
 
 function checkout(){
-
+	
+    
 		var data = {
-		user_id:localStorage.currentUser
+		user_id:localStorage.currentUser,
+		length: globalvar,
+		creditcard_id:$('#creditcards').val()
 		
 		};
 
@@ -110,5 +120,31 @@ function checkout(){
 	
 	
 }
+function remove(){
+	
+    
+		var data = {
+		user_id:localStorage.currentUser,
+		product_id: globalproduct	
+		};
 
+	var url = "http://localhost:5000/remove";
+
+	
+		$.post(url, data, function(){
+			console.log('sucess');
+		})
+		.done(function(){
+			alert("Item removed!");
+			$.mobile.changePage( "account.html", { reloadPage: true, transition: "none"} );
+			
+		})
+		.fail(function(){
+			alert('System Error: Please try later');
+		})
+	
+	
+	
+	
+}
 
