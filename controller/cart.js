@@ -68,26 +68,7 @@ $(document).on('pagebeforeshow', "#cart", function(event, ui) {
            
             $(this).hide();
             $("h4").hide();
-            var data = {
-		user_id:localStorage.currentUser
-		//product_id: $(this)
-		};
-alert(data[0]);
-	// var url = "http://localhost:5000/remove";
-// 
-// 	
-		// $.post(url, data, function(){
-			// console.log('sucess');
-		// })
-		// .done(function(){
-			// alert("Chech your email for receipt!");
-			// $.mobile.changePage( "account.html", { reloadPage: true, transition: "none"} );
-// 			
-		// })
-		// .fail(function(){
-			// alert('System Error: Please try later');
-		// })
-// 	
+            
   });    
 		},
 		error: function(data, textStatus, jqXHR){
@@ -106,7 +87,9 @@ alert(data[0]);
 function checkout(){
 
 		var data = {
-		user_id:localStorage.currentUser};
+		user_id:localStorage.currentUser
+		
+		};
 
 	var url = "http://localhost:5000/checkout";
 
