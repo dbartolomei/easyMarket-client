@@ -1,6 +1,4 @@
 function new_user1(){
-	alert('wassaa');
-	alert($("#gender option:selected").val());
 	var data = {
 		fname : $('#fname').val(),
 		lname : $('#lname').val(),
@@ -24,6 +22,9 @@ function new_user1(){
 		
 	){
 		alert('Please complete the form');
+	}
+	else if(data.phone.length != 10){
+		alert('Phone must be have 10 digits!');
 	}
 	else if((pass_check != data.password) && (pass_check != null)){
 		alert('Passwords do not match! Try again');	

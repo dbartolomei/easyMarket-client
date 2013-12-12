@@ -1,10 +1,14 @@
-function new_address(){
+function new_address1(){
+	
+	alert('jalu');
 	var data = {
 		line1 : $('#line1').val(),
 		line2 : $('#line2').val(),
 		state : $('#state').val(),
 		country : $('#country').val(),
-		zipcode : $('#zipcode').val()
+		zipcode : $('#zipcode').val(),
+		city : $('#city').val(),
+		shipping_address : $("#shipping-address option:selected").val()
 	};
 
 	var url = "http://localhost:5000/new_address";
@@ -13,9 +17,11 @@ function new_address(){
 		|| data.state.length == 0 
 		|| data.country.length == 0 
 		|| data.zipcode.length == 0
+		|| data.city.length == 0
 	){
-		alert('Please complete the form')
+		alert('Please complete the form');
 	}
+	
 	else{
 		$.post(url, data, function(){
 			console.log('sucess');

@@ -1,6 +1,5 @@
 $(document).on('ready',function(event){ console.log('account.js loaded'); })
 
-
 $(document).on('pagebeforeshow', "#account", function(event, ui) {
     $.mobile.loading("show");
     if(localStorage.currentUser == ''){
