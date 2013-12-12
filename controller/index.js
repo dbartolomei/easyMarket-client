@@ -1,8 +1,10 @@
+url = 'http://localhost:5000'
+
 $(document).on('ready',function(event){ console.log('index.js loaded'); })
 
 $(document).on('pagebeforeshow', "#home", function(event, ui) {
 	$.ajax({
-		url : "http://easymarket.herokuapp.com/products",
+		url : url + "/products",
 		contentType: "application/json",
 		success : function(data, textStatus, jqXHR){
 			var productList = data.data;

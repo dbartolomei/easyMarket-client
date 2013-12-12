@@ -2,7 +2,7 @@ $(document).on('ready',function(event){ console.log('bids.js loaded'); })
 
 $(document).on('pagebeforeshow', "#bids", function(event, ui) {
 	$.ajax({
-		url : "http://easymarket.herokuapp.com/winningbids",
+		url : "http://localhost:5000/winningbids",
 		contentType: "application/json",
 		data: {user_id:localStorage.currentUser},
 		

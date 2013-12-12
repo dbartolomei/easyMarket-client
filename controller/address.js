@@ -1,6 +1,6 @@
 $(document).on('pagebeforeshow', "#address", function(event, ui) {
 	$.ajax({
-		url : "http://easymarket.herokuapp.com/address",
+		url : "http://localhost:5000/address",
 		contentType: "application/json",
 		data: {user_id:localStorage.currentUser},
 		success : function(data, textStatus, jqXHR){

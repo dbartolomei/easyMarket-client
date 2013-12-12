@@ -3,7 +3,7 @@ $(document).on('ready',function(event){ console.log('orders.js loaded'); })
 
 $(document).on('pagebeforeshow', "#orders", function(event, ui) {
 	$.ajax({
-		url : "http://easymarket.herokuapp.com/orders",
+		url : "http://localhost:5000/orders",
 		contentType: "application/json",
 		data: {user_id:localStorage.currentUser},
 		success : function(data, textStatus, jqXHR){
