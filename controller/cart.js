@@ -10,7 +10,7 @@ $(document).on('pagebeforeshow', "#cart", function(event, ui) {
     else{
     	
     		$.ajax({
-            url : "http://localhost:5000/creditcard",
+            url : window.url + "/creditcard",
             contentType: "application/json",
             data: {user_id:localStorage.currentUser},
             success : function(data, textStatus, jqXHR){
@@ -40,7 +40,7 @@ $(document).on('pagebeforeshow', "#cart", function(event, ui) {
      
 	
 	$.ajax({
-		url : "http://localhost:5000/cartproducts",
+		url : window.url + "/cartproducts",
 		contentType: "application/json",
 		data: {user_id:localStorage.currentUser},
 		success : function(data, textStatus, jqXHR){
@@ -69,7 +69,9 @@ $(document).on('pagebeforeshow', "#cart", function(event, ui) {
 	         list3.listview("refresh");
 			
 			}
+			if(cartList.length>0){
 			total.append("<h4 style='text-align: right'>Total: $ "+product.price_total +"</h4>");
+	}
 		$("li").on("swipe",function(){
            globalproduct=$(this).val();
            remove();
@@ -101,7 +103,7 @@ function checkout(){
 		
 		};
 
-	var url = "http://localhost:5000/checkout";
+	var url = window.url + "/checkout";
 
 	
 		$.post(url, data, function(){
@@ -128,7 +130,7 @@ function remove(){
 		product_id: globalproduct	
 		};
 
-	var url = "http://localhost:5000/remove";
+	var url = window.url + "/remove";
 
 	
 		$.post(url, data, function(){

@@ -1,10 +1,9 @@
 $(document).on('pagebeforeshow', "#address", function(event, ui) {
 	$.ajax({
-		url : "http://localhost:5000/address",
+		url : window.url + "/address",
 		contentType: "application/json",
 		data: {user_id:localStorage.currentUser},
-		success : function(data, textStatus, jqXHR){
-		    
+		success : function(data, textStatus, jqXHR){ 
 			var addressList = data.data;
 			var list = $("#address-list");
 			

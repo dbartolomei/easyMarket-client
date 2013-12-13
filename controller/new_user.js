@@ -9,7 +9,7 @@ function new_user1(){
 		gender : $("#gender option:selected").val()
 	};
 	var pass_check = $('#pass_check').val();
-	var url = "http://localhost:5000/new_user";
+	var url = window.url + "/new_user";
 
 	if(data.fname.length == 0 
 		|| data.lname.length == 0 

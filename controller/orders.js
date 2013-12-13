@@ -3,7 +3,7 @@ $(document).on('ready',function(event){ console.log('orders.js loaded'); })
 
 $(document).on('pagebeforeshow', "#orders", function(event, ui) {
 	$.ajax({
-		url : "http://localhost:5000/orders",
+		url : window.url + "/orders",
 		contentType: "application/json",
 		data: {user_id:localStorage.currentUser},
 		success : function(data, textStatus, jqXHR){

@@ -1,7 +1,11 @@
 $(document).on('pagebeforeshow', "#credit", function(event, ui) {
 	$.ajax({
+<<<<<<< HEAD
 
 		url : "http://localhost:5000/creditcard",
+=======
+		url : window.url + "/creditcard",
+>>>>>>> d1c79b6c8af6837b273e1e1d9fbf840fe0d44293
 		contentType: "application/json",
 		data: {user_id:localStorage.currentUser},
 		success : function(data, textStatus, jqXHR){

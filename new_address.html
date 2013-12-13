@@ -15,14 +15,15 @@
 		<script src="controller/product.js"></script>
 		<script src="controller/profile.js"></script>
 		<script src="controller/new_cc.js"></script>
-
+		<script src="controller/address.js"></script>
+		<script src="controller/new_address.js"></script>	
 		
 		
 
 	</head>
 	<body>
 		
-		<div id="address" data-role="page">
+		<div id="new_address" data-role="page">
 			<div data-role="header"   data-position="fixed"> 
 				<h1>Add Addresses</h1>
 				<a id='previousPage' data-rel="back" >Back</a>
@@ -34,14 +35,15 @@
 					<input id="line1" type="text" name="address[line1]">
 					<label> Address Line 2 </label>
 					<input id="line2" type="text" name="address[line2]">
+					<label> City </label>
+					<input id="city" type="text" name="address[city]">
 					<label> State </label>
 					<input id="state" type="text" name="address[state]">
 					<label> Country </label>
 					<input id="country" type="text" name="address[country]">
 					<label> ZipCode </label>
 					<input id="zipcode" type="text" name="address[zipcode]">
-					<label> City </label>
-					<input id="city" type="text" name="address[city]">	
+						
 					
 					  <label for="shipping-address" class="select">Shipping Address:</label>
   					 <select name="shipping" id="shipping-address">
@@ -60,7 +62,7 @@
 					<ul>
 					    <li><a href="index.html"  data-role="button" data-icon="search" data-iconpos="top" > Home</a></li>
 						<li><a href="search.html" data-role="button" data-icon="info"  data-iconpos="top" >Search</a></li>
-						<li><a href="#" data-role="button" data-icon="star" data-iconpos="top" > My Account</a></li>
+						<li><a href="account.html" data-role="button" data-icon="star" data-iconpos="top" > My Account</a></li>
 					    <li><a href="sell.html"  data-role="button" data-icon="grid" data-iconpos="top">Sell</a></li>
 					    <li><a href="cart.html"  data-role="button" data-icon="grid" data-iconpos="top">Cart</a></li>
 

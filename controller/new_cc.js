@@ -1,6 +1,7 @@
  $(document).on('pagebeforeshow', "#newcc", function(event, ui) {
  
  $.ajax({
+<<<<<<< HEAD
             url : "http://localhost:5000/getaddress",
             contentType: "application/json",
             data: {user_id:localStorage.currentUser},
@@ -24,39 +25,34 @@
           
        // area.append("</select>");   
            },
+=======
+        url : window.url + "/address",
+        contentType: "application/json",
+        data: {user_id:localStorage.currentUser},
+        success : function(data, textStatus, jqXHR){
+	       var area=$("#billingaddress1");
+	       area.empty();
+	       var jason= data.data;
+	       console.log(jason);
+	           
+		   var billaddress;
+		   for(var i=0; i<jason.length;i++){
+			   	billaddress=jason[i];
+			   	area.append("<option value="+  billaddress.address_id   +">"+  billaddress.address_line1 + "," + billaddress.address_line2 +"</option>");
+			    area.fieldcontain("refresh");
+			}
+	 	},
+>>>>>>> d1c79b6c8af6837b273e1e1d9fbf840fe0d44293
             
-            error: function(data, textStatus, jqXHR){
-                console.log("textStatus: " + textStatus);
-                alert("Data not found!");
-            }
-       });
+        error: function(data, textStatus, jqXHR){
+            console.log("textStatus: " + textStatus);
+            alert("Please add a valid Address before adding a Credit Card");
+        }
+    });
 });
-var billingaddress = $('#billingaddress1 option:selected').val();
 
- function new_billaddress(){
- 	alert('llego');
- 	alert(billingaddress);
- 	var data1 = {
-		addressid : billingaddress,
-		user_id : localStorage.currentUser 
-	};
-	
-		
- 		var url1 = "http://localhost:5000/new_billaddress";
- 		$.post(url1, data1, function(){
-			console.log('sucess');
-		})
-		.done(function(){
-			//change location to addresses view
-		})
-		.fail(function(){
-			alert('System Error: Please try later');
-		});
- 	
- }
 
 function new_cc(){
-	
 	var data = {
 		ccnumber : $('#ccnumber').val(),
 		ccownerfname : $('#ccownerfname').val(),
@@ -67,7 +63,7 @@ function new_cc(){
 		user_id : localStorage.currentUser 
 	};
 	
-	var url = "http://localhost:5000/new_creditcard";
+	var  ajax_url = url + "/new_creditcard";
 
 	if(data.ccnumber.length == 0 
 		|| data.ccownerfname.length == 0 
@@ -85,14 +81,10 @@ function new_cc(){
 		alert('Check that your credit card secret code has 3 digits');
 	}
 	else{
-		alert('hola');
-		$.post(url, data, function(){
+		$.post(ajax_url, data, function(){
 			console.log('sucess');
 		})
 		.done(function(){
-			//change location to addresses view
-			
-			new_billaddress();
 		})
 		.fail(function(){
 			alert('System Error: Please try later');

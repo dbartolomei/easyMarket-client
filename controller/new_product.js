@@ -8,7 +8,7 @@ $('#auctionspace').hide();
 $(document).on('pagebeforeshow', "#sell", function(event, ui) {
       
 		$.ajax({
-            url : "http://localhost:5000/categoriesfornewproduct",
+            url : window.url + "/categoriesfornewproduct",
             contentType: "application/json",
             success : function(data, textStatus, jqXHR){
            var area=$("#categories");
@@ -69,7 +69,7 @@ function new_product(){
 		//local storage
 	};
 
-	var url = "http://localhost:5000/new_product";
+	var url = window.url + "/new_product";
 
 	
 		$.post(url, data, function(){

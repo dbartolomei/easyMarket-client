@@ -33,7 +33,18 @@
 				<p id='product-description'></p>
 				<img id='product-image' style='width:100%'> </img>
 				<a id='addToCart' data-role="button" onclick='addToCart()'></a>
-				<a id='bidNow' data-role="button" onclick='addToCart()'></a>
+				 <div id="bitprice" data-role="fieldcontain">
+                <label for="price" id="label">
+                   Enter Bid Price:
+                </label>
+                <input name="" id="price" placeholder="" value="$"></input>
+               
+               
+               
+               </div>
+				
+				<a id='bidNow' data-role="button" onclick='bid()'></a>
+		
 			</div>
 
 

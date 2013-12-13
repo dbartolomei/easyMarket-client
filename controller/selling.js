@@ -1,8 +1,8 @@
 $(document).on('ready',function(event){ console.log('selling.js loaded'); })
-
+var product_id;
 $(document).on('pagebeforeshow', "#selling", function(event, ui) {
 	$.ajax({
-		url : "http://localhost:5000/sellingproducts",
+		url : url + "/sellingproducts",
 		contentType: "application/json",
 		data: {user_id:localStorage.currentUser},
 		success : function(data, textStatus, jqXHR){
@@ -68,7 +68,7 @@ $(document).on('pagebeforeshow', "#selling", function(event, ui) {
 				product.product_id + ")><p><h4>"+
 				product.product_name + "</h4></p><p>"+product.description 
 				+"</p><p>Brand: " + product.brand+ "</p><p>Start price: $" + product.auction_price+ 
-				"</p><p>End time: " + (product.end_time).substring(0,10)+ "</p></a></li><li style='background:white; color:black;'><a href='#' data-role='button'><p><h4>Highest Bid</h4></p><p>Bid Price: $"
+				"</p><p>End time: " + (product.end_time).substring(0,10)+ "</p></a></li><li style='background:white; color:black;'><a onclick=accept_bid("+product.product_id +") data-role='button'><p><h4>Highest Bid</h4></p><p>Bid Price: $"
 				+product.bid_price+"</p><p> User: "+ product.first_name+" "+product.last_name+"</p>Click to Accept Bid</a></li>"
 				);
 				
@@ -97,3 +97,30 @@ $(document).on('pagebeforeshow', "#selling", function(event, ui) {
 		}
 	});
 });
+
+
+function accept_bid(product_id){
+	
+	alert("Are you sure?");
+	var data = {
+		
+        product_id : product_id,
+		user_id:localStorage.currentUser
+		//local storage
+	};
+	var url = "http://localhost:5000/accept_bid";
+
+	
+		$.post(url, data, function(){
+			console.log('sucess');
+		})
+		.done(function(){
+			
+			$.mobile.changePage( "account.html", { reloadPage: true, transition: "none"} );
+			
+		})
+		.fail(function(){
+			alert('System Error: Please try later');
+		})
+	
+}

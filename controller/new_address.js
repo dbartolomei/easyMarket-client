@@ -1,5 +1,5 @@
 function new_address1(){
-	
+	var shippingflag = $("#shipping-address option:selected").val() == 'true'
 	var data = {
 		line1 : $('#line1').val(),
 		line2 : $('#line2').val(),
@@ -7,11 +7,11 @@ function new_address1(){
 		country : $('#country').val(),
 		zipcode : $('#zipcode').val(),
 		city : $('#city').val(),
-		shipping_address : $("#shipping-address option:selected").val(),
+		shippingflag : shippingflag,
 		user_id : localStorage.currentUser 
 	};
-	console.log(ids);
-	var url = "http://localhost:5000/new_address";
+
+ 	var ajax_url = window.url + "/new_address";
 
 	if(data.line1.length == 0 
 		|| data.state.length == 0 
@@ -21,9 +21,8 @@ function new_address1(){
 	){
 		alert('Please complete the form');
 	}
-	
 	else{
-		$.post(url, data, function(){
+		$.post(ajax_url, data, function(){
 			console.log('sucess');
 		})
 		.done(function(){
