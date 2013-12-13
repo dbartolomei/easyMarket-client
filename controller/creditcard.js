@@ -1,6 +1,6 @@
 $(document).on('pagebeforeshow', "#credit", function(event, ui) {
 	$.ajax({
-		url : url + "/creditcard",
+		url : window.url + "/creditcard",
 		contentType: "application/json",
 		data: {user_id:localStorage.currentUser},
 		success : function(data, textStatus, jqXHR){

@@ -7,7 +7,7 @@ var minimum=0.00;
     
 $(document).on('pagebeforeshow', "#product", function( event, ui ) {
 		$.ajax({
-		url : url + "/product?id=" + localStorage.id,
+		url : window.url + "/product?id=" + localStorage.id,
 		method: 'get',
 		contentType: "application/json",
 		success : function(product, textStatus, jqXHR){
@@ -86,7 +86,7 @@ function bid(){
 		//local storage
 	};
 
-	var url = "http://localhost:5000/bid_product";
+	var url = window.url + "/bid_product";
 
 	
 		$.post(url, data, function(){
@@ -120,7 +120,7 @@ function addToCart(){
 		//local storage
 	};
 
-	var url = "http://localhost:5000/add_product";
+	var url = window.url + "/add_product";
 
 	
 		$.post(url, data, function(){

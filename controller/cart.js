@@ -40,7 +40,7 @@ $(document).on('pagebeforeshow', "#cart", function(event, ui) {
      
 	
 	$.ajax({
-		url : "http://localhost:5000/cartproducts",
+		url : window.url + "/cartproducts",
 		contentType: "application/json",
 		data: {user_id:localStorage.currentUser},
 		success : function(data, textStatus, jqXHR){
@@ -103,7 +103,7 @@ function checkout(){
 		
 		};
 
-	var url = "http://localhost:5000/checkout";
+	var url = window.url + "/checkout";
 
 	
 		$.post(url, data, function(){
@@ -130,7 +130,7 @@ function remove(){
 		product_id: globalproduct	
 		};
 
-	var url = "http://localhost:5000/remove";
+	var url = window.url + "/remove";
 
 	
 		$.post(url, data, function(){

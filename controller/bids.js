@@ -2,7 +2,7 @@ $(document).on('ready',function(event){ console.log('bids.js loaded'); })
 
 $(document).on('pagebeforeshow', "#bids", function(event, ui) {
 	$.ajax({
-		url : "http://localhost:5000/winningbids",
+		url : window.url + "/winningbids",
 		contentType: "application/json",
 		data: {user_id:localStorage.currentUser},
 		
