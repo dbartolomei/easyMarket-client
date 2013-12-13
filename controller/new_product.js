@@ -1,4 +1,4 @@
-$(document).on('ready',function(event){  
+$(document).on('pagebeforeshow',function(event){  
 
 $('#pricespace').hide();
 $('#auctionspace').hide();
