@@ -1,6 +1,5 @@
 function new_address1(){
 	
-	alert('jalu');
 	var data = {
 		line1 : $('#line1').val(),
 		line2 : $('#line2').val(),
@@ -8,9 +7,10 @@ function new_address1(){
 		country : $('#country').val(),
 		zipcode : $('#zipcode').val(),
 		city : $('#city').val(),
-		shipping_address : $("#shipping-address option:selected").val()
+		shipping_address : $("#shipping-address option:selected").val(),
+		user_id : localStorage.currentUser 
 	};
-
+	console.log(ids);
 	var url = "http://localhost:5000/new_address";
 
 	if(data.line1.length == 0 

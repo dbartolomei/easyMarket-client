@@ -1,6 +1,8 @@
 $(document).on('pagebeforeshow', "#credit", function(event, ui) {
 	$.ajax({
-		url : "http://easymarket.herokuapp.com/creditcard",
+		
+		
+		url : "http://localhost:5000/creditcard",
 		contentType: "application/json",
 		data: {user_id:localStorage.currentUser},
 		success : function(data, textStatus, jqXHR){

@@ -6,11 +6,13 @@ $(document).on('pagebeforeshow', "#profile", function(event, ui) {
         $.mobile.changePage("login.html",{ });
     } 
     else{
+    	
 		$.ajax({
             url : "http://easymarket.herokuapp.com/user",
             contentType: "application/json",
             data: {user_id:localStorage.currentUser},
             success : function(data, textStatus, jqXHR){
+            	
             	$('.profileItem').empty();
             	$('#first_name').append('First Name: '+data.data[0].first_name);
             	$('#last_name').append('Last Name: '+ data.data[0].last_name);
@@ -26,20 +28,20 @@ $(document).on('pagebeforeshow', "#profile", function(event, ui) {
                 console.log("textStatus: " + textStatus);
                 alert("Data not found!");
             }
-        })
+       });
     }    
 });
 
 function logout(){
-	localStorage.currentUser = ''
-	$.mobile.changePage("index.html")
+	localStorage.currentUser = '';
+	$.mobile.changePage("index.html");
 }
 
 function login(){
 	var data = {
 		username : $('#username').val(),
 		password : $('#password').val()
-	}
+	};
 
 	if(data.username.length != 0 && data.password.length != 0){
 		
@@ -57,6 +59,6 @@ function login(){
             console.log(data);
             console.log(textStatus);
 			alert( "error" );
-	  	})
+	  });
 	}
 }
