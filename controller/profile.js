@@ -8,7 +8,7 @@ $(document).on('pagebeforeshow', "#profile", function(event, ui) {
     else{
     	
 		$.ajax({
-            url : "http://easymarket.herokuapp.com/user",
+            url : "http://localhost:5000/user",
             contentType: "application/json",
             data: {user_id:localStorage.currentUser},
             success : function(data, textStatus, jqXHR){

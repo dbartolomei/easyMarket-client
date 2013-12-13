@@ -5,7 +5,7 @@ var cart = [];
 
 $(document).on('pagebeforeshow', "#product", function( event, ui ) {
 		$.ajax({
-		url : "http://easymarket.herokuapp.com/product?id=" + localStorage.id,
+		url : url + "/product?id=" + localStorage.id,
 		method: 'get',
 		contentType: "application/json",
 		success : function(product, textStatus, jqXHR){
@@ -61,11 +61,30 @@ $(document).on('pagebeforeshow', "#product", function( event, ui ) {
 
 
 function addToCart(){
-	console.log(current);
-	var aux = JSON.parse(localStorage.cart);
-	console.log(aux);
-	aux.push(current);
-	console.log(aux);
 
-	localStorage.cart = JSON.stringify(aux);
+		var data = {
+		product_id : localStorage.id,
+
+		user_id:localStorage.currentUser
+		//local storage
+	};
+
+	var url = "http://localhost:5000/add_product";
+
+	
+		$.post(url, data, function(){
+			console.log('sucess');
+		})
+		.done(function(){
+			alert("Added to cart!");
+			$.mobile.changePage( "cart.html", { reloadPage: true, transition: "none"} );
+			
+		})
+		.fail(function(){
+			alert('System Error: Please try later');
+		})
+	
+	
+	
+	
 }
