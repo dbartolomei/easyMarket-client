@@ -10,7 +10,7 @@ $(document).on('pagebeforeshow', "#cart", function(event, ui) {
     else{
     	
     		$.ajax({
-            url : "http://localhost:5000/creditcard",
+            url : window.url + "/creditcard",
             contentType: "application/json",
             data: {user_id:localStorage.currentUser},
             success : function(data, textStatus, jqXHR){
