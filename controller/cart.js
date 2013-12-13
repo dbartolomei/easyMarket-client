@@ -69,7 +69,9 @@ $(document).on('pagebeforeshow', "#cart", function(event, ui) {
 	         list3.listview("refresh");
 			
 			}
+			if(cartList.length>0){
 			total.append("<h4 style='text-align: right'>Total: $ "+product.price_total +"</h4>");
+	}
 		$("li").on("swipe",function(){
            globalproduct=$(this).val();
            remove();
