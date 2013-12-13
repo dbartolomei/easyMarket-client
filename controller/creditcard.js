@@ -1,5 +1,10 @@
 $(document).on('pagebeforeshow', "#credit", function(event, ui) {
 	$.ajax({
+<<<<<<< HEAD
+		
+		
+=======
+>>>>>>> d6eb9e7af736a606895b8e89533fb833ba380238
 		url : "http://localhost:5000/creditcard",
 		contentType: "application/json",
 		data: {user_id:localStorage.currentUser},

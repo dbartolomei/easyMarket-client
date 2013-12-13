@@ -10,24 +10,46 @@
 		<script src="controller/profile.js"></script>	
 		<script src="controller/new_address.js"></script>
 		<script src="controller/new_user.js"></script>	
+		<script src="controller/account.js"></script>	
+		<script src="controller/index.js"></script>
+		<script src="controller/product.js"></script>
+		<script src="controller/profile.js"></script>
+		<script src="controller/new_cc.js"></script>
+
+		
+		
 
 	</head>
 	<body>
 		
 		<div id="address" data-role="page">
 			<div data-role="header"   data-position="fixed"> 
-				<h1>Addresses</h1>
-				<a id='previousPage' data-rel="back" >back</a>
+				<h1>Add Addresses</h1>
+				<a id='previousPage' data-rel="back" >Back</a>
 			</div>
 			
 			<div data-role="content" >
 				<form>
+					<label> Address Line 1 </label>
 					<input id="line1" type="text" name="address[line1]">
+					<label> Address Line 2 </label>
 					<input id="line2" type="text" name="address[line2]">
+					<label> State </label>
 					<input id="state" type="text" name="address[state]">
+					<label> Country </label>
 					<input id="country" type="text" name="address[country]">
-					<input id="zipcode" type="text" name="address[zipcode]">					
-					<a id='new_address_submit'data-role='button' onclick='new_address()'> Submit </a>
+					<label> ZipCode </label>
+					<input id="zipcode" type="text" name="address[zipcode]">
+					<label> City </label>
+					<input id="city" type="text" name="address[city]">	
+					
+					  <label for="shipping-address" class="select">Shipping Address:</label>
+  					 <select name="shipping" id="shipping-address">
+     					<option value="True">Yes</option>
+      					<option value="False">No</option>
+   					</select>
+										
+					<a id='submit'data-role='button' href="address.html" onclick='new_address1()'> Submit </a>
 				</form>	
 			</div>
 			
