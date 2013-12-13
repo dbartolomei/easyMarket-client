@@ -68,7 +68,7 @@ function new_product(){
 		user_id:localStorage.currentUser
 		//local storage
 	};
-
+console.log(data);
 	var url = window.url + "/new_product";
 
 	
