@@ -1,7 +1,7 @@
  $(document).on('pagebeforeshow', "#newcc", function(event, ui) {
  
  $.ajax({
-<<<<<<< HEAD
+
             url : "http://localhost:5000/getaddress",
             contentType: "application/json",
             data: {user_id:localStorage.currentUser},
@@ -25,7 +25,7 @@
           
        // area.append("</select>");   
            },
-=======
+
         url : window.url + "/address",
         contentType: "application/json",
         data: {user_id:localStorage.currentUser},
@@ -34,7 +34,7 @@
 	       area.empty();
 	       var jason= data.data;
 	       console.log(jason);
-	           
+	       area.append("<option value=" +"N/A"+ "</option>");
 		   var billaddress;
 		   for(var i=0; i<jason.length;i++){
 			   	billaddress=jason[i];
@@ -42,7 +42,7 @@
 			    area.fieldcontain("refresh");
 			}
 	 	},
->>>>>>> d1c79b6c8af6837b273e1e1d9fbf840fe0d44293
+
             
         error: function(data, textStatus, jqXHR){
             console.log("textStatus: " + textStatus);
@@ -60,6 +60,7 @@ function new_cc(){
 		company : $('#company').val(),
 		expdate : $('#ccexp').val(),
 		secretcode : $('#ccsc').val(),
+		addressid : $("#billingaddress1 option:selected").val(),
 		user_id : localStorage.currentUser 
 	};
 	
