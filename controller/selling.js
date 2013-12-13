@@ -2,7 +2,7 @@ $(document).on('ready',function(event){ console.log('selling.js loaded'); })
 
 $(document).on('pagebeforeshow', "#selling", function(event, ui) {
 	$.ajax({
-		url : "http://localhost:5000/sellingproducts",
+		url : url + "/sellingproducts",
 		contentType: "application/json",
 		data: {user_id:localStorage.currentUser},
 		success : function(data, textStatus, jqXHR){
