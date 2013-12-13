@@ -1,4 +1,5 @@
 url = 'http://localhost:5000';
+//url = 'http://easymarket.herokuapp.com';
 
 $(document).on('ready',function(event){ console.log('index.js loaded'); })
 
