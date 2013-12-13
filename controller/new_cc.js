@@ -11,6 +11,8 @@
            console.log(jason);
            
    var billaddress;
+   var message = "Select a Billing Address";
+   area.append("<option>" + message + "</option>");
    for(var i=0; i<jason.length;i++){
        billaddress=jason[i];
        
